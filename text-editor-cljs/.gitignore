@@ -1,0 +1,11 @@
+.clj-kondo
+.lsp
+out
+.shadow-cljs
+node_modules
+public/js
+cljs.core.js
+cljs_env.js
+editor.js
+*.js.map
+test-main.js

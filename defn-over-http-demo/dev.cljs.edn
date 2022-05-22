@@ -1,0 +1,6 @@
+^{:watch-dirs ["src/cljs"]
+  :css-dirs ["resources/public/css"]
+  :auto-testing true
+  :auto-bundle :webpack
+   }
+{:main fullstack.ui}

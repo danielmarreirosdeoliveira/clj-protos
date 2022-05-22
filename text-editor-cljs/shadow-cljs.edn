@@ -1,0 +1,32 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[org.clojars.knubie/cljs-run-test "1.0.1"]
+  [binaryage/devtools               "0.9.10"]]
+
+ :dev-http ; starts a http dev server on http://localhost:8020 and serves `public`
+ {8020 "public"}
+
+ :builds
+ {:app ; build identifier
+  {:target :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+
+   :modules
+   {:main ; becomes public/js/main.js
+    {:init-fn browser/init}}}
+ 
+   :library {:target :npm-module
+             :output-dir "."
+             :release {:compiler-options {:optimizations :simple}}
+             :entries [editor]}
+
+  :test {:target :node-script
+                    :output-to "test-main.js"
+                    :main      editor-test/init
+                    :devtools  {:preloads [devtools.preload]}}}}

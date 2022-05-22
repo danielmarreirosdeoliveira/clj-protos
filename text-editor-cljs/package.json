@@ -1,0 +1,7 @@
+{
+  "name": "text-editor-cljs",
+  "version": "0.0.18",
+  "devDependencies": {
+    "shadow-cljs": "2.16.12"
+  }
+}
