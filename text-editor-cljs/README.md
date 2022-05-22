@@ -22,7 +22,7 @@ of which keys are pressed.
 
 Use
 
-    $ npm -i text-editor-cljs
+    $ npm i text-editor-cljs
 
     import {Editor} from "text-editor-cljs"
     console.log(Editor.hello("dan"))
