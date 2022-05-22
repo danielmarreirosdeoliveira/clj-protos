@@ -32,6 +32,12 @@ Uses `jwt`-based authentication.
 The same as fullstack-clj, but this time using [defn-over-http](https://github.com/eighttrigrams/defn-over-http)
 to mediate the communication between frontend and backend.
 
+## mount-lucene-jwt
+
+In part this was created, amongst other things, to understand a luminus starter project which used `mount` and
+to dabble a bit with `lucene`. Apart from that, I took the approach of `fullstack-clj` a step further insofar as
+now authorization also gets done over the now single endpoint.
+
 ## plain-planner-clj
 
 A project planning tool. Apart from it being another exploration of web technologies, the general idea here was to build a timeline based
