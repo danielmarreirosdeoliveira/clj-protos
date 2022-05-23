@@ -1,7 +1,7 @@
 (ns fullstack.resources
   (:require [clojure.string :as str]))
 
-(defonce resources
+(def resources
   [{:id 1 :name "one"}
    {:id 2 :name "two"}
    {:id 3 :name "three" :protected true}])
