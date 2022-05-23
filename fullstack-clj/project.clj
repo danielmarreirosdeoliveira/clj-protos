@@ -33,6 +33,5 @@
 
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.12"]
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]]
-                   
                    :resource-paths ["target"]
                    :clean-targets ^{:protect false} ["target" "resources/public/cljs-out"]}})

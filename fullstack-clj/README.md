@@ -1,13 +1,14 @@
 # fullstack-clj
 
-Proof of concept for a fullstack `Clojure`/`ClojureScript` (`reagent`) 
-application with JWT-authentication. 
+Proof of concept for a fullstack `Clojure(Script)`, `reagent`-based
+application
 
-Code can be shared between API and UI, the delopment conveniently done with hot-code-reloading (via `ring-server` and `figwheel-main`). The test suites include tests against a running Jetty with full authentication/authorization.
-
-## Other features
-
+- JWT-authentication with `buddy-auth`
 - The browser's back button works as expected with the help of `secretary` and `accountant`.
+- `cljc`-code can be shared between API and UI. 
+- Hot-code reloading via `figwheel-main` and `lein-ring`
+- The test suites include tests against a running `Jetty` with full authentication/authorization.
+- Data-driven design
 
 ## Design
 
@@ -16,34 +17,68 @@ The general idea for the API architecture is that except for `/api/login` everyt
 
 ## Getting started
 
+### Preparations
+
 Install react
 
 	$ npm i
 
-For development of the API, run
+### Starting the application
 
-	$ lein ring server-headless
+To start the backend, run
 
-This provides hot-code-reload for the `clj` and `cljc` artifacts 
-out of the box. Save a file and make another request to see changes.
-The UI will use this api automaically via a proxy.
+	1$ lein ring server-headless
+
+This - via `ring-server` -provides hot-code-reload for the `clj` and `cljc` artifacts out of the box. Save a file (try `src/clj/resources.clj`) and make another request to see the changes.
 
 To start and develop the UI, run
 
-	$ lein fig:build   # serves the single page application under `localhost:9500` 
+	2$ lein fig:build   # serves the single page application under `localhost:9500` 
 
-This will provide hot-code reload for `cljs` and `cljc` artifacts.
+This will provide hot-code reload for `cljs` and `cljc` artifacts via `figwheel-main`. It will automatically refresh the page after files have been changed. It will also give you the `rebel-readline`. Try it
 
-You will see that everything is connected by getting a REPL in the shell from which you started the command. It
-will prompt `cljs.user=>`. From there you could verify by entering `(js/alert "Hi")`. You can also, when in development mode
-via `fig:build`, verify a successfully established connection by inspecting the messages in the browser console.
+```
+user=> (js/alert "Hi")
+```
 
-Note that while for a successful connection to of the figwheel REPL using `localhost:9500` is necessary,
-the `localhost:3000` route can also then be called in the browser. Doing this allows for example calling `localhost:3000/login` directly, which is the final and desired behaviour of the app when packaged.
+## Packaging
 
-## Testing
+Package the application and run it with the following commands.
 
-### API
+```
+$ lein clean
+$ lein fig:min
+$ lein ring uberjar # The packaged jar is self contained 
+					# and contains API and UI, including npm-dependencies
+$ java -jar target/fullstack-0.1.0-SNAPSHOT-standalone.jar
+```
+
+## Development
+
+During development the application both `localhost:3000` and `localhost:9500` are used.
+The latter is what we use to access the app in the browser, the former what can be used to access the
+API directly (see section below).
+
+Entering `lein fig:build` instructs Figwheel to start its own server to server the frontend. When the frontend
+tries to access `/api` or `/login`, these calls get proxied to the actual backend running at port `3000`.
+
+Note that during development the route `localhost:9500/login` will not work when entered into the browser.
+However, that does work once the app is packaged. That is, one will be able to access `localhost:3000/login` via the web-browser.
+
+### API Usage
+
+The backend is reachable via `localhost:3000`.
+
+Post `{ "name": "user-1", "pass": "pass-1" }` to `/login` to obtain a token.
+
+Use token and post `{ "query-type": "resources", "query": { "q": "" }}` to `/api` to see available and matching resources.
+
+Use token and post `{ "query-type": "permissions" }` to `/api` to see actual permissions.
+
+
+### Testing
+
+#### API
 
 * Test-Suite against a real jetty, mainly for testing authentication/authorization
 * Unit tests
@@ -53,7 +88,7 @@ Run
 
 	$ lein test
 
-### UI
+#### UI
 
 * Unit tests via infrastructure provided by figwheel
 * Test against `cljs` and `cljc` artifacts
@@ -64,22 +99,3 @@ or via
 
 	$ lein fig:test
 
-## Packaging
-
-```
-$ lein clean
-$ lein fig:min
-$ lein ring uberjar # The packaged jar is self contained 
-					# and contains API and UI, including npm-dependencies
-$ java -jar target/fullstack-0.1.0-SNAPSHOT-standalone.jar
-```
-
-## API Usage
-
-The backend is reachable via `localhost:3000`.
-
-Post `{ "name": "user-1", "pass": "pass-1" }` to `/login` to obtain a token.
-
-Use token and post `{ "query-type": "resources", "query": { "q": "" }}` to `/api` to see available and matching resources.
-
-Use token and post `{ "query-type": "permissions" }` to `/api` to see actual permissions.
