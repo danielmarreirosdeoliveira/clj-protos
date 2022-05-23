@@ -20,9 +20,8 @@
   (let [query-string   (atom "")
         result         (atom [])
         handler        #(reset! result %)
-        _error-handler #(prn "caught by error handler:" %)
         list-resources #(#_{:clj-kondo/ignore [:unresolved-var]}
-                         (api/list-resources handler #_error-handler) @query-string)
+                         (api/list-resources handler) @query-string)
         on-change      (fn [new-query-string]
                          (reset! query-string new-query-string)
                          (list-resources))]

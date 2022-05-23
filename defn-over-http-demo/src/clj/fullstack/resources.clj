@@ -8,7 +8,6 @@
 
 (defn list-resources [{permissions :permissions}] 
   (fn [query-string]
-    #_(throw (Exception. "oh no"))
     (->> resources
          (remove #(when (not= permissions "all")
                     (:protected %)))
