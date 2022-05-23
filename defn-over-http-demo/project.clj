@@ -18,7 +18,7 @@
                  [buddy/buddy-auth "2.2.0"]
                  [ring/ring-jetty-adapter "1.8.2"]
                  [derekchiang/ring-proxy "1.0.1"]
-                 [net.eighttrigrams/defn-over-http "0.1.8"]]
+                 [net.eighttrigrams/defn-over-http "0.1.10"]]
 
   :plugins [[lein-ring "0.12.5"]]
 
