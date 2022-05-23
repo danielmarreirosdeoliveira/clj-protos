@@ -1,6 +1,7 @@
 (ns fullstack.api
-  (:require [fullstack.auth :as auth])
-  (:require-macros [net.eighttrigrams.defn-over-http.core :refer [defn-over-http]]))
+  (:require-macros [net.eighttrigrams.defn-over-http.core :refer [defn-over-http]])
+  (:require [fullstack.auth :as auth]
+            ajax.core))
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (def api-path "/api")
@@ -15,4 +16,8 @@
       {}
       {"Authorization" (str "Bearer " token)})))
 
+#_{:clj-kondo/ignore [:unresolved-symbol]}
 (defn-over-http list-resources [])
+
+#_{:clj-kondo/ignore [:unresolved-symbol]}
+(defn-over-http log-in nil)

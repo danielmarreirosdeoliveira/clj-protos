@@ -1,7 +1,7 @@
 (ns fullstack.login
   (:require [reagent.core :as reagent :refer [atom]]
             [fullstack.auth :as auth]
-            [ajax.core :refer [POST json-request-format]]))
+            [fullstack.api :as api]))
 
 (defn- show-msg [msg-shown]
   (fn []
@@ -9,10 +9,8 @@
     (js/setTimeout (fn [] (reset! msg-shown false)) 1500)))
 
 (defn- fetch-token [msg-shown login-name login-pass]
-  (POST "/api/login" {:body (.stringify js/JSON (clj->js {:name @login-name :pass @login-pass}))
-                      :headers {"Content-Type" "application/json"}
-                      :format (json-request-format)
-                      :handler (auth/login-handler (show-msg msg-shown))}))
+  (#_{:clj-kondo/ignore [:unresolved-var]}
+   (api/log-in (auth/login-handler (show-msg msg-shown))) {:name @login-name :pass @login-pass}))
 
 (defn- input-field [property-a placeholder left]
   [:input
