@@ -10,9 +10,7 @@ application
 - The test suites include tests against a running `Jetty` with full authentication/authorization.
 - Data-driven design
 
-## Design
-
-The general idea for the API architecture is that except for `/api/login` everything else is done via 
+Regarding the last point, the general idea for the API architecture is that except for `/api/login` everything else is done via 
 `/api/` directly. Maps are used to communicate between front- and backend instead of url parameters or different endpoints. For example `{:query-type "resources" :query {:q "t"}}` will yield results for a prefix-search of resources. `clj/fullstack/dispatch.clj` will delegate calls to other modules, here the resources module, where the handler there gets the query and permissions passed as its context.
 
 ## Getting started
@@ -29,7 +27,7 @@ To start the backend, run
 
 	1$ lein ring server-headless
 
-This - via `ring-server` -provides hot-code-reload for the `clj` and `cljc` artifacts out of the box. Save a file (try `src/clj/resources.clj`) and make another request to see the changes.
+This - via `ring-server` - provides hot-code-reload for the `clj` and `cljc` artifacts out of the box. Save a file (try `src/clj/resources.clj`) and make another request to see the changes.
 
 To start and develop the UI, run
 
