@@ -14,6 +14,12 @@ This is a minimum template you can use as the basis for CLJS projects intended t
 
 Open [http://localhost:8020](http://localhost:8020) or [http://localhost:3000](http://localhost:3000). 
 
+## Packaging
+
+    $ npx shadow-cljs release app
+    $ clojure -M -m uberdeps.uberjar --deps-file deps.edn --target websockets.jar
+    $ java -cp websockets.jar clojure.main -m server
+
 ## Shadow-Cljs
 
 The app is only a very basic skeleton with the most useful development tools configured.
