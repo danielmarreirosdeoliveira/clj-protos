@@ -1,0 +1,15 @@
+.lsp
+.clj-kondo
+/public/js
+/node_modules
+/target
+/.shadow-cljs
+/*.iml
+/.nrepl-port
+/.idea
+.clj-kondo
+.cpcache
+.lsp
+.rebel_readline_history
+.calva
+target

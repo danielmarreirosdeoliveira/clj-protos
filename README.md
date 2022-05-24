@@ -38,6 +38,10 @@ In part this was created, amongst other things, to understand a luminus starter 
 to dabble a bit with `lucene`. Apart from that, I took the approach of `fullstack-clj` a step further insofar as
 now authorization also gets done over the now single endpoint.
 
+## websockets
+
+An experiment with websockets. Frontend made with a `shadow-cljs` starter, backend is based on `http-kit`.
+
 ## plain-planner-clj
 
 A project planning tool. Apart from it being another exploration of web technologies, the general idea here was to build a timeline based
