@@ -1,4 +1,4 @@
-(ns browser
+(ns client
   (:require [clojure.string :as str]))
 
 (defonce sock (atom nil))
@@ -11,6 +11,7 @@
       (.-onclick)
       (set! (fn [_e]
               (when @sock (.send @sock "L")))))
+
 
   (-> js/document
       (.getElementById "b2")
@@ -25,7 +26,7 @@
   ;; this is called in the index.html and must be exported
   ;; so it is available even in :advanced release builds
   (js/console.log "init!!")
-  (let [socket (js/WebSocket. "ws://localhost:1234")]
+  (let [socket (js/WebSocket. (str "ws://" js/location.host "/ws"))]
     (set! (.-onopen socket) (fn [_e] #__))
     (set! (.-onmessage socket) (fn [_e]
                                  (-> js/document

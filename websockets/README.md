@@ -2,48 +2,19 @@
 
 This is a minimum template you can use as the basis for CLJS projects intended to run in the browser.
 
-# Start server
+## Preparations
 
-    $ clj -X:run
+    $ npm i
 
-## Required Software
+## Getting started
 
-- [node.js (v6.0.0+)](https://nodejs.org/en/download/)
-- [Java JDK (8+)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or [Open JDK (8+)](http://jdk.java.net/10/)
+    1$ clj -X:run
+    2$ npx shadow-cljs server
+    3$ npx shadow-cljs watch app
 
-## User Guide
+Open [http://localhost:8020](http://localhost:8020) or [http://localhost:3000](http://localhost:3000). 
 
-This repository only shows a basic example of how to get a basic Browser build.
-
-Please refer to the full [User Guide](https://shadow-cljs.github.io/docs/UsersGuide.html) for more information.
-
-
-## Running the Example
-
-```bash
-git clone https://github.com/shadow-cljs/quickstart-browser.git quickstart
-cd quickstart
-npm install
-npx shadow-cljs server
-```
-
-This runs the `shadow-cljs` server process which all following commands will talk to. Just leave it running and open a new terminal to continue.
-
-The first startup takes a bit of time since it has to download all the dependencies and do some prep work. Once this is running we can get started.
-
-```txt
-npx shadow-cljs watch app
-```
-
-This will begin the compilation of the configured `:app` build and re-compile whenever you change a file.
-
-When you see a "Build completed." message your build is ready to be used.
-
-```txt
-[:app] Build completed. (23 files, 4 compiled, 0 warnings, 7.41s)
-```
-
-You can now then open [http://localhost:8020](http://localhost:8020).
+## Shadow-Cljs
 
 The app is only a very basic skeleton with the most useful development tools configured.
 
@@ -98,26 +69,6 @@ The last part is the actual `index.html` that is loaded when you open `http://lo
 </body>
 </html>
 ```
-
-## Live reload
-
-To see the live reload in action you can edit the `src/main/start/browser.cljs`. Some output will be printed in the browser console.
-
-## REPL
-
-During development it the REPL is very useful.
-
-From the command line use `npx shadow-cljs cljs-repl app`.
-
-```
-shadow-cljs - config .../shadow-cljs.edn
-shadow-cljs - connected to server
-cljs.user=>
-```
-
-This can now be used to eval code in the browser (assuming you still have it open). Try `(js/alert "Hi.")` and take it from there. You might want to use `rlwrap npx shadow-cljs cljs-repl app` if you intend to type a lot here.
-
-You can exit the REPL by either `CTRL+C` or typing `:repl/quit`.
 
 ## Release
 

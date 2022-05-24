@@ -1,5 +1,6 @@
-(ns go
-  (:require [org.httpkit.server :as s]
+(ns server
+  (:require [clojure.java.io :as io]
+            [org.httpkit.server :as s]
             [hiccup.core :as h]))
 
 (defonce server (atom nil))
@@ -11,7 +12,7 @@
     (@server :timeout 100)
     (reset! server nil)))
 
-(defn handler [request]
+(defn ws-handler [request]
   #_{:clj-kondo/ignore [:unresolved-symbol]}
   (s/with-channel request channel
     (let [_a (get (:headers request) "sec-websocket-key")]
@@ -21,8 +22,20 @@
                                 (s/send! channel (str "1_" (h/html [:span "AAA"])))
                                 (s/send! channel (str "2_" (h/html [:span "BBB"])))))))))
 
+(defn resource-handler [req]
+  {:status 200 
+   :body (slurp (io/resource 
+                 (if (= "/" (:uri req)) 
+                   "index.html" 
+                   (subs (:uri req) 1))))})
+
+(defn app [req]
+  (if (= "/ws" (:uri req))
+    (ws-handler req)
+    (resource-handler req)))
+
 (defn -main [& _args]
   ;; The #' is useful when you want to hot-reload code
   ;; You may want to take a look: https://github.com/clojure/tools.namespace
   ;; and https://http-kit.github.io/migration.html#reload
-  (reset! server (s/run-server #'handler {:port 1234})))
+  (reset! server (s/run-server #'app {:port 4000})))

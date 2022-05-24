@@ -4,9 +4,6 @@
  :dependencies
  [[hiccups "0.3.0"]]
 
- :dev-http
- {8020 "public"}
-
  :builds
  {:app
   {:target :browser
@@ -15,4 +12,4 @@
 
    :modules
    {:main ; becomes public/js/main.js
-    {:init-fn browser/init}}}}}
+    {:init-fn client/init}}}}}
