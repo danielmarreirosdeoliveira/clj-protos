@@ -17,12 +17,12 @@ train a **Keras** model in a **Python** environment.
 
 A Go board game implementation - written in Clojure - based on the great book Deep Learning and the Game of Go by Max Pumperla.
 
-## gameloop-clj
+## gameloop
 
 A proof of concept of a very basic 2D game engine built on top of a physics engine. 
 Built to explore how a reinforcement learning testbed could be set up.
 
-## field-proto-clj
+## field-proto
 
 My first shot at a full stack Clojure web application, with `reagent` on the front end. The style of the demo is of a very typical application like we did many at [Dainst](https://github.com/dainst).
 
@@ -43,13 +43,13 @@ In part this was created, amongst other things, to understand a luminus starter 
 to dabble a bit with `lucene`. Apart from that, I took the approach of `fullstack-clj` a step further insofar as
 now authorization also gets done over the now single endpoint.
 
-## websockets-http-kit
+## websockets
 
 An experiment with websockets. Frontend made with a `shadow-cljs` starter. 
 
 There are two backends. One is based on `http-kit` and the other is based on `ring-undertow-adapter`
 
-## plain-planner-clj
+## plain-planner
 
 A project planning tool. Apart from it being another exploration of web technologies, the general idea here was to build a timeline based
 on issue tracking information.
