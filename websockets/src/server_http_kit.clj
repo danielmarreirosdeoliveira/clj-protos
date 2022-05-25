@@ -1,4 +1,4 @@
-(ns server
+(ns server-http-kit
   (:require [clojure.java.io :as io]
             [org.httpkit.server :as s]
             [hiccup.core :as h]))

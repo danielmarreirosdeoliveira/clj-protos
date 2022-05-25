@@ -12,7 +12,6 @@
       (set! (fn [_e]
               (when @sock (.send @sock "L")))))
 
-
   (-> js/document
       (.getElementById "b2")
       (.-onclick)

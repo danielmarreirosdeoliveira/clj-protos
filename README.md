@@ -1,6 +1,11 @@
 # Clojure(Script) Prototypes
    
-and proofs-of-concept
+and proofs-of-concept.
+
+These fall broadly into two categories:
+
+1. Explorations of ideas
+2. Experimentation with different technology stacks
 
 ## keras-mnist-clj
 
@@ -38,9 +43,11 @@ In part this was created, amongst other things, to understand a luminus starter 
 to dabble a bit with `lucene`. Apart from that, I took the approach of `fullstack-clj` a step further insofar as
 now authorization also gets done over the now single endpoint.
 
-## websockets
+## websockets-http-kit
 
-An experiment with websockets. Frontend made with a `shadow-cljs` starter, backend is based on `http-kit`.
+An experiment with websockets. Frontend made with a `shadow-cljs` starter. 
+
+There are two backends. One is based on `http-kit` and the other is based on `ring-undertow-adapter`
 
 ## plain-planner-clj
 
