@@ -18,6 +18,6 @@ Open [http://localhost:4000](http://localhost:4000).
 ## Packaging
 
     $ npx shadow-cljs release app
-    $ clojure -M -m uberdeps.uberjar --deps-file deps.edn --target websockets.jar
+    $ clojure -M -m uberdeps.uberjar --target websockets.jar
     $ java -cp websockets.jar clojure.main -m server-http-kit
     $ java -cp websockets.jar clojure.main -m server-ring-undertow # alternatively
