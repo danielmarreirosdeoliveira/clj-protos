@@ -17,7 +17,7 @@
       {"Authorization" (str "Bearer " token)})))
 
 #_{:clj-kondo/ignore [:unresolved-symbol]}
-(defn-over-http list-resources [])
+(defn-over-http list-resources [[] base-error-handler])
 
 #_{:clj-kondo/ignore [:unresolved-symbol]}
-(defn-over-http log-in nil)
+(defn-over-http log-in ["" base-error-handler])

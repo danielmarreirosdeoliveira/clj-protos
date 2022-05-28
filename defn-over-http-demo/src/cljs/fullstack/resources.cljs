@@ -1,6 +1,8 @@
 (ns fullstack.resources
   (:require [reagent.core :as reagent :refer [atom]]
-            [fullstack.api :as api]))
+            [fullstack.api :as api]
+            [cljs.core.async :refer [go]]
+            [cljs.core.async.interop :refer-macros [<p!]]))
 
 (defn- search-component [q on-change]
   [:div.search
@@ -19,9 +21,11 @@
 (defn component []
   (let [query-string   (atom "")
         result         (atom [])
-        handler        #(reset! result %)
-        list-resources #(#_{:clj-kondo/ignore [:unresolved-var]}
-                         (api/list-resources handler) @query-string)
+        list-resources #(go (->> @query-string 
+                                #_{:clj-kondo/ignore [:unresolved-var]}
+                                api/list-resources 
+                                <p! 
+                                (reset! result)))
         on-change      (fn [new-query-string]
                          (reset! query-string new-query-string)
                          (list-resources))]

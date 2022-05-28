@@ -10,6 +10,7 @@
                  [org.clojure/clojurescript "1.10.773"]
                  [compojure/compojure "1.6.2"]
                  [ring/ring-json "0.5.1"]
+                 [org.clojure/core.async "1.5.648"]
                  [reagent "0.10.0" :exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server]]
                  [reagent-utils "0.3.3"]
                  [clj-http "3.12.1"]
@@ -18,7 +19,7 @@
                  [buddy/buddy-auth "2.2.0"]
                  [ring/ring-jetty-adapter "1.8.2"]
                  [derekchiang/ring-proxy "1.0.1"]
-                 [net.eighttrigrams/defn-over-http "0.1.10"]]
+                 [net.eighttrigrams/defn-over-http "0.1.12"]]
 
   :plugins [[lein-ring "0.12.5"]]
 

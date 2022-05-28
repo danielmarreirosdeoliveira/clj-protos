@@ -1,7 +1,9 @@
 (ns fullstack.login
   (:require [reagent.core :as reagent :refer [atom]]
             [fullstack.auth :as auth]
-            [fullstack.api :as api]))
+            [fullstack.api :as api]
+            [cljs.core.async :refer [go]]
+            [cljs.core.async.interop :refer-macros [<p!]]))
 
 (defn- show-msg [msg-shown]
   (fn []
@@ -9,8 +11,11 @@
     (js/setTimeout (fn [] (reset! msg-shown false)) 1500)))
 
 (defn- fetch-token [msg-shown login-name login-pass]
-  (#_{:clj-kondo/ignore [:unresolved-var]}
-   (api/log-in (auth/login-handler (show-msg msg-shown))) {:name @login-name :pass @login-pass}))
+  (go ((auth/login-handler (show-msg msg-shown)) 
+       (-> {:name @login-name :pass @login-pass}
+           #_{:clj-kondo/ignore [:unresolved-var]}
+           api/log-in
+           <p!))))
 
 (defn- input-field [property-a placeholder left]
   [:input
