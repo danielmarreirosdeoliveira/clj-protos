@@ -13,7 +13,7 @@
                                        {"Authorization" (str "Bearer " token)})))})
 
 #_{:clj-kondo/ignore [:unresolved-symbol]}
-(defn-over-http list-resources {:return-value []})
+(defn-over-http list-resources :return-value [])
 
 #_{:clj-kondo/ignore [:unresolved-symbol]}
-(defn-over-http log-in {:return-value ""})
+(defn-over-http log-in :return-value "")
