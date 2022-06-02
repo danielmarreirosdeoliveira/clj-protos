@@ -26,22 +26,22 @@ Built to explore how a reinforcement learning testbed could be set up.
 
 My first shot at a full stack Clojure web application, with `reagent` on the front end. The style of the demo is of a very typical application like we did many at [Dainst](https://github.com/dainst).
 
-## fullstack-clj
+## fullstack-cljc
 
 Another web application. The main theme of the backend is a layered data-driven architecture. The latter is implemented in terms of a single API endpoint and then a dispatch mechanism based on the data structure supplied via the request body. 
 
 Uses `jwt`-based authentication.
 
-## defn-over-http-demo
+## fullstack-cljc-mount
+
+In part this was created, amongst other things, to understand a luminus starter project which used `mount`. 
+Apart from that, I took the approach of `fullstack-clj` a step further insofar as
+now authorization also gets done over the now single endpoint.
+
+## fullstack-cljc-defn-over-http
 
 The same as fullstack-clj, but this time using [defn-over-http](https://github.com/eighttrigrams/defn-over-http)
 to mediate the communication between frontend and backend. Here it handles authorization as well as resource queries.
-
-## mount-lucene-jwt
-
-In part this was created, amongst other things, to understand a luminus starter project which used `mount` and
-to dabble a bit with `lucene`. Apart from that, I took the approach of `fullstack-clj` a step further insofar as
-now authorization also gets done over the now single endpoint.
 
 ## plain-planner
 

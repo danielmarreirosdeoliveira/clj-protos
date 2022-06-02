@@ -1,6 +1,6 @@
-# mount-lucene-jwt-backend
+# fullstack-cljc-mount
 
-A json api using mount, lucene, jwt.
+A json api using mount, jwt.
 
 ## Getting started
 

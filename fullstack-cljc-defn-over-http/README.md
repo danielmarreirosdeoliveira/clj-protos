@@ -1,4 +1,4 @@
-# defn-over-http-demo		 
+# fullstack-cljc-defn-over-http
 
 See [eighttrigrams/defn-over-http](https://github.com/eighttrigrams/defn-over-http)
    

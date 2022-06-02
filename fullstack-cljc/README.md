@@ -1,4 +1,4 @@
-# fullstack-clj
+# fullstack-cljc
 
 Proof of concept for a fullstack `Clojure(Script)`, `reagent`-based
 application
