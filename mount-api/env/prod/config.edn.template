@@ -1,5 +1,0 @@
-{:port        3000
- :secret      "adskjfasl jlsjf"
- :users       {"dan" "key"}
- :permissions {"dan"       "all"
-               "anonymous" "none"}}
