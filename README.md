@@ -2,11 +2,6 @@
    
 and proofs-of-concept.
 
-These fall broadly into two categories:
-
-1. Explorations of ideas
-2. Experimentation with different technology stacks
-
 See also: [cljc-webstacks](https://github.com/eighttrigrams/cljc-webstacks)
 
 ## keras-mnist-clj
