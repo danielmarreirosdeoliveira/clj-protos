@@ -28,6 +28,10 @@ Built to explore how a reinforcement learning testbed could be set up.
 
 My first shot at a full stack Clojure web application, with `reagent` on the front end. The style of the demo is of a very typical application like we did many at [Dainst](https://github.com/dainst).
 
+## rocketoid
+
+An experimentat with [Biff](https://biffweb.com). Attempt to reimplement [cometoid](https://github.com/eighttrigrams/cometoid)
+
 ## plain-planner
 
 A project planning tool. Apart from it being another exploration of web technologies, the general idea here was to build a timeline based
