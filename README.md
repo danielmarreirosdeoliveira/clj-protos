@@ -30,7 +30,7 @@ My first shot at a full stack Clojure web application, with `reagent` on the fro
 
 ## rocketoid
 
-An experiment with [Biff](https://biffweb.com). Attempt to reimplement [cometoid](https://github.com/eighttrigrams/cometoid)
+An experiment with [Biff](https://biffweb.com). Attempt to reimplement [cometoid](https://github.com/eighttrigrams/cometoid).
 
 ## plain-planner
 
