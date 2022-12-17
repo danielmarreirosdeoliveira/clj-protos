@@ -32,7 +32,7 @@ Another web application. The main theme of the backend is a layered data-driven 
 
 Uses `jwt`-based authentication.
 
-## fullstack-cljc-mount
+## mount-api
 
 In part this was created, amongst other things, to understand a luminus starter project which used `mount`. 
 Apart from that, I took the approach of `fullstack-clj` a step further insofar as
